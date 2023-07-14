@@ -11,7 +11,7 @@ interface Props{
 
 const SingleTask:React.FC<Props> = ({task,tasks ,setTasks}) => {
 
-  const markcomplete = (id:number) => {
+  const markComplete = (id:number) => {
     setTasks(tasks.map((task) => {
       if (task.id === id) {
         return { ...task, iscomplete: !task.iscomplete };
@@ -21,16 +21,16 @@ const SingleTask:React.FC<Props> = ({task,tasks ,setTasks}) => {
   };
 
 
-    const deletetask=(id:number)=>{
+    const deleteTask=(id:number)=>{
         setTasks(tasks.filter(task=>task.id !== id))
     }
   return (
     <div className='singletask'>
       <h2>{task.title}</h2>
       {task.iscomplete? 
-      <h3 className='complete' onDoubleClick={()=>markcomplete(task.id)} >{task.iscomplete?'completed':'pending'}</h3>:
-       <h3 className='pending' onDoubleClick={()=>markcomplete(task.id)}>{task.iscomplete?'completed':'pending'}</h3>}
-      <button onClick={()=>deletetask(task.id)}>delete</button>
+      <h3 className='complete' onDoubleClick={()=>markComplete(task.id)} >{task.iscomplete?'completed':'pending'}</h3>:
+       <h3 className='pending' onDoubleClick={()=>markComplete(task.id)}>{task.iscomplete?'completed':'pending'}</h3>}
+      <button onClick={()=>deleteTask(task.id)}>delete</button>
     </div>
   )
 }

@@ -10,7 +10,7 @@ interface Props{
 const AddTask:React.FC<Props> = ({tasks,setTasks}) => {
     const[todo,setTodo]=useState<string>('')
      
-    const addtodo=(e: { preventDefault: () => void; })=>{
+    const addTodo=(e: { preventDefault: () => void; })=>{
         e.preventDefault()
         const tododata:Taskinterface={
             id:Math.floor(Math.random() * 1000)+1,
@@ -26,7 +26,7 @@ const AddTask:React.FC<Props> = ({tasks,setTasks}) => {
     }
   return (
     <div className='add-task'>
-      <form onSubmit={addtodo}>
+      <form onSubmit={addTodo}>
         <input type='text' onChange={(e)=>setTodo(e.target.value)} value={todo} required/>
         <button>submit</button>
       </form>
